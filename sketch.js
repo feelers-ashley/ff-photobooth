@@ -130,7 +130,7 @@ function setup() {
   msgFillCol = color(random(255), random(255), random(255));
   msgStrCol = color(random(255), random(255), random(255));
   frameCol = color(random(255), random(255), random(255));
-  greetX = random(0, 0.5 * gg.width);
+  greetX = random(0.1 * gg.height, 0.5 * gg.width);
   greetY = random(0, 0.5 * gg.height);
   msgX = random(0, 0.3 * gg.width);
   msgY = random(0.5 * gg.height, 0.7 * gg.height);
