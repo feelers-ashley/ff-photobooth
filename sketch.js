@@ -34,7 +34,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  gg = createGraphics(0.7 * height, 0.7 * height);
+  gg = createGraphics(0.75 * height, 0.75 * height);
 
   ////////// APPLY COLOUR GRADIENTS //////////
   c1 = color(255, 255, 255);
@@ -58,38 +58,38 @@ function setup() {
   ////////// ASSIGN BUTTONS //////////
   greetBtn = createImg("assets/button/greet.png");
   greetBtn.position(0.07 * width, 0.28 * height);
-  greetBtn.size(120, 100);
+  greetBtn.size(0.12 * width, 0.095 * width);
   greetBtn.mousePressed(changeGreeting);
 
   subBtn = createImg("assets/button/subject.png");
-  subBtn.size(100, 100);
+  subBtn.size(0.1 * width, 0.1 * width);
   subBtn.position(0.09 * width, 0.7 * height);
   subBtn.mousePressed(changeSubject);
 
   bgLBtn = createImg("assets/button/arrowL.png");
-  bgLBtn.size(70, 60);
+  bgLBtn.size(0.07 * width, 0.06 * width);
   bgLBtn.position(
-    0.5 * width - gg.width / 2 - bgLBtn.width - 20,
+    0.5 * width - gg.width / 2 - bgLBtn.width - 0.025 * width,
     0.55 * height - bgLBtn.height / 2
   );
   bgLBtn.mousePressed(changeLBackground);
 
   bgRBtn = createImg("assets/button/arrowR.png");
-  bgRBtn.size(70, 60);
+  bgRBtn.size(0.07 * width, 0.06 * width);
   bgRBtn.position(
-    0.5 * width + gg.width / 2 + 20,
+    0.5 * width + gg.width / 2 + 0.025 * width,
     0.55 * height - bgRBtn.height / 2
   );
   bgRBtn.mousePressed(changeRBackground);
 
   frameBtn = createImg("assets/button/frame.png");
-  frameBtn.position(0.79 * width, 0.18 * height);
-  frameBtn.size(120, 140);
+  frameBtn.position(0.79 * width, 0.16 * height);
+  frameBtn.size(0.12 * width, 0.14 * width);
   frameBtn.mousePressed(changeFrame);
 
   saveBtn = createImg("assets/button/save.png");
-  saveBtn.position(0.5 * width + gg.width / 2 + 50, 0.78 * height);
-  saveBtn.size(100, 100);
+  saveBtn.position(0.5 * width + gg.width / 2 + 0.045 * width, 0.78 * height);
+  saveBtn.size(0.1 * width, 0.1 * width);
   saveBtn.mousePressed(saveImg);
 
   ////////// ASSIGN INIT GRAPHICS //////////
@@ -114,7 +114,9 @@ function setup() {
   ];
   greeting = greetings[0];
   textInput = createInput("wishing a merry day today and everyday");
-  textInput.position(0.83 * width, 0.64 * height);
+  textInput.position(0.831 * width, 0.64 * height);
+  textInput.size(0.14 * width, 0.02 * width);
+  textInput.style("font-size", "20px");
   greetFillCol = color(random(255), random(255), random(255));
   greetStrCol = color(random(255), random(255), random(255));
   msgFillCol = color(random(255), random(255), random(255));
@@ -138,18 +140,18 @@ function draw() {
   drawingContext.shadowOffsetY = 2;
   drawingContext.shadowBlur = 8;
   drawingContext.shadowColor = color(192);
-  image(fLogo, 0.01 * width, 0.01 * height, 200, 100);
+  image(fLogo, 0.01 * width, 0.01 * height, 0.2 * width, 0.2 * height);
   pop();
 
   push();
   // TITLE
   fill(0);
-  textSize(50);
+  textSize(0.05 * width);
   textFont("Poor Story");
   text("make your own Good AM graphic ~", 0.24 * width, 0.11 * height);
 
   // BUTTON TEXT
-  textSize(30);
+  textSize(0.03 * width);
   fill(255, 0, 127);
   textFont("ZCOOL KuaiLe");
   text("greeting", 0.07 * width, 0.5 * height);
@@ -159,12 +161,12 @@ function draw() {
   text("save", 0.76 * width, 0.77 * height);
 
   // FOOTER
-  textSize(10);
+  textSize(0.01 * width);
   fill(255, 204, 229);
   textFont("Trispace");
-  text("www.feelers-feelers.com", 0.1 * width, height - 10);
-  text("follow us on ig @feelers_feelers", 0.45 * width, height - 10);
-  text("peace and love", 0.88 * width, height - 10);
+  text("www.feelers-feelers.com", 0.1 * width, 0.98 * height);
+  text("follow us on ig @feelers_feelers", 0.45 * width, 0.98 * height);
+  text("peace and love", 0.88 * width, 0.98 * height);
   pop();
 
   ////////// GRAPHIC CANVAS //////////
@@ -178,18 +180,18 @@ function draw() {
 
   // GREETING TEXT
   gg.push();
-  gg.textSize(50);
+  gg.textSize(0.05 * width);
   gg.fill(greetFillCol);
   gg.stroke(greetStrCol);
   gg.strokeWeight(5);
-  gg.textFont("Bebas Neue");
+  gg.textFont("Playfair Display");
   gg.textWrap(WORD);
   gg.text(greeting, greetX, greetY, gg.width - greetX);
   gg.pop();
 
   // MESSSAGE TEXT
   gg.push();
-  gg.textSize(30);
+  gg.textSize(0.03 * width);
   gg.fill(msgFillCol);
   gg.stroke(msgStrCol);
   gg.strokeWeight(2);
@@ -200,7 +202,7 @@ function draw() {
 
   // FRAME
   gg.push();
-  gg.strokeWeight(8);
+  gg.strokeWeight(0.006 * width);
   gg.stroke(frameCol);
   gg.noFill();
   gg.square(0, 0, gg.width);
