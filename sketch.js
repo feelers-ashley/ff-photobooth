@@ -8,10 +8,20 @@ Colloquially-known “Good Morning” WhatsApp images are easily identified by t
 Come visit this activity booth to make your own “Good Morning” graphics using a generator created by Singaporean art & tech label Feelers! The first 30 participants may have their generated images made into WhatsApp stickers, released by Feelers.
 === */
 
+new p5();
 let gg;
 let c1, c2, gc1, gc2;
 let fLogo;
-let PlayfairDisplay, PoorStory, Satisfy, Trispace, ZCOOLKuaiLe;
+let PlayfairDisplay,
+  dReady = false;
+let PoorStory,
+  pReady = false;
+let Satisfy,
+  sReady = false;
+let Trispace,
+  tReady = false;
+let ZCOOLKuaiLe,
+  zReady = false;
 let bgLBtn, bgRBtn, subBtn, frameBtn, greetBtn, saveBtn;
 let bgImgs = [];
 let subjectImgs = [];
@@ -31,6 +41,7 @@ function preload() {
   Satisfy = loadFont("assets/font/Satisfy.ttf");
   Trispace = loadFont("assets/font/Trispace.ttf");
   ZCOOLKuaiLe = loadFont("assets/font/ZCOOLKuaiLe.ttf");
+
   fLogo = loadImage("assets/feelers-logo.png");
   for (let i = 0; i < 29; i++) {
     bgImgs[i] = loadImage("assets/bg/bg" + i + ".png");
