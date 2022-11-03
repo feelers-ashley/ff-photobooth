@@ -1,0 +1,17 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+p {
+  font-family: "Lemonada";
+  font-family: "Poor Story";
+  font-family: "Sarina";
+  font-family: "Satisfy";
+  font-family: "Trispace";
+  font-family: "ZCOOL KuaiLe";
+  font-family: "Bebas Neue";
+}
+canvas {
+  display: block;
+}
