@@ -12,16 +12,7 @@ new p5();
 let gg;
 let c1, c2, gc1, gc2;
 let fLogo;
-let PlayfairDisplay,
-  dReady = false;
-let PoorStory,
-  pReady = false;
-let Satisfy,
-  sReady = false;
-let Trispace,
-  tReady = false;
-let ZCOOLKuaiLe,
-  zReady = false;
+let PlayfairDisplay, PoorStory, Satisfy, Trispace, ZCOOLKuaiLe;
 let bgLBtn, bgRBtn, subBtn, frameBtn, greetBtn, saveBtn;
 let bgImgs = [];
 let subjectImgs = [];
@@ -252,7 +243,7 @@ function changeGreeting() {
   msgFillCol = color(random(255), random(255), random(255));
   msgStrCol = color(random(255), random(255), random(255));
   greetX = random(0, 0.5 * gg.width);
-  greetY = random(0, 0.5 * gg.height);
+  greetY = random(0.1 * gg.height, 0.5 * gg.height);
   msgX = random(0, 0.5 * gg.width);
   msgY = random(0.5 * gg.height, 0.7 * gg.height);
 }
