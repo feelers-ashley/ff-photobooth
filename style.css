@@ -5,12 +5,12 @@ body {
 }
 @font-face {
   font-family: "Lemonada";
-  font-family: "Poor Story";
+  font-family: "PoorStory";
   font-family: "Sarina";
   font-family: "Satisfy";
   font-family: "Trispace";
-  font-family: "ZCOOL KuaiLe";
-  font-family: "Playfair Display";
+  font-family: "ZCOOLKuaiLe";
+  font-family: "PlayfairDisplay";
 }
 canvas {
   display: block;
