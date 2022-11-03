@@ -130,8 +130,8 @@ function setup() {
   msgFillCol = color(random(255), random(255), random(255));
   msgStrCol = color(random(255), random(255), random(255));
   frameCol = color(random(255), random(255), random(255));
-  greetX = random(0.1 * gg.height, 0.5 * gg.width);
-  greetY = random(0, 0.5 * gg.height);
+  greetX = random(0, 0.5 * gg.width);
+  greetY = random(0.1 * gg.height, 0.5 * gg.height);
   msgX = random(0, 0.3 * gg.width);
   msgY = random(0.5 * gg.height, 0.7 * gg.height);
   subX = random(subjectImg.width, gg.width - subjectImg.width);
@@ -188,7 +188,7 @@ function draw() {
 
   // GREETING TEXT
   gg.push();
-  gg.textSize(0.03 * width);
+  gg.textSize(0.04 * width);
   gg.fill(greetFillCol);
   gg.stroke(greetStrCol);
   gg.strokeWeight(5);
