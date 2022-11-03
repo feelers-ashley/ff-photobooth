@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
 }
-p {
+@font-face {
   font-family: "Lemonada";
   font-family: "Poor Story";
   font-family: "Sarina";
