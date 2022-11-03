@@ -11,6 +11,7 @@ Come visit this activity booth to make your own “Good Morning” graphics usin
 let gg;
 let c1, c2, gc1, gc2;
 let fLogo;
+let PlayfairDisplay, PoorStory, Satisfy, Trispace, ZCOOLKuaiLe;
 let bgLBtn, bgRBtn, subBtn, frameBtn, greetBtn, saveBtn;
 let bgImgs = [];
 let subjectImgs = [];
@@ -25,6 +26,11 @@ let counter;
 
 ////////// PRELOAD IMGS //////////
 function preload() {
+  PlayfairDisplay = loadFont("assets/font/PlayfairDisplay.ttf");
+  PoorStory = loadFont("assets/font/PoorStory.ttf");
+  Satisfy = loadFont("assets/font/Satisfy.ttf");
+  Trispace = loadFont("assets/font/Trispace.ttf");
+  ZCOOLKuaiLe = loadFont("assets/font/ZCOOLKuaiLe.ttf");
   fLogo = loadImage("assets/feelers-logo.png");
   for (let i = 0; i < 29; i++) {
     bgImgs[i] = loadImage("assets/bg/bg" + i + ".png");
@@ -147,13 +153,13 @@ function draw() {
   // TITLE
   fill(0);
   textSize(0.05 * width);
-  textFont("Poor Story");
+  textFont(PoorStory);
   text("make your own Good AM graphic ~", 0.24 * width, 0.11 * height);
 
   // BUTTON TEXT
   textSize(0.03 * width);
   fill(255, 0, 127);
-  textFont("ZCOOL KuaiLe");
+  textFont(ZCOOLKuaiLe);
   text("greeting", 0.07 * width, 0.5 * height);
   text("subject", 0.09 * width, 0.69 * height);
   text("frame", 0.81 * width, 0.46 * height);
@@ -163,7 +169,7 @@ function draw() {
   // FOOTER
   textSize(0.01 * width);
   fill(255, 204, 229);
-  textFont("Trispace");
+  textFont(Trispace);
   text("www.feelers-feelers.com", 0.1 * width, 0.98 * height);
   text("follow us on ig @feelers_feelers", 0.45 * width, 0.98 * height);
   text("peace and love", 0.88 * width, 0.98 * height);
@@ -184,7 +190,7 @@ function draw() {
   gg.fill(greetFillCol);
   gg.stroke(greetStrCol);
   gg.strokeWeight(5);
-  gg.textFont("Playfair Display");
+  gg.textFont(PlayfairDisplay);
   gg.textWrap(WORD);
   gg.text(greeting, greetX, greetY, gg.width - greetX);
   gg.pop();
@@ -195,7 +201,7 @@ function draw() {
   gg.fill(msgFillCol);
   gg.stroke(msgStrCol);
   gg.strokeWeight(2);
-  gg.textFont("Satisfy");
+  gg.textFont(Satisfy);
   gg.textWrap(WORD);
   gg.text(textInput.value(), msgX, msgY, gg.width - msgX);
   gg.pop();
