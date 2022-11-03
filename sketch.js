@@ -130,10 +130,7 @@ function setup() {
   subY = random(subjectImg.height, gg.height - subjectImg.height);
   noiseScale = 0.02;
   counter = 0;
-}
 
-function draw() {
-  ////////// GUI //////////
   // FEELERS LOGO
   push();
   drawingContext.shadowOffsetX = 2;
@@ -142,7 +139,10 @@ function draw() {
   drawingContext.shadowColor = color(192);
   image(fLogo, 0.01 * width, 0.01 * height, 0.2 * width, 0.2 * height);
   pop();
+}
 
+function draw() {
+  ////////// GUI //////////
   push();
   // TITLE
   fill(0);
