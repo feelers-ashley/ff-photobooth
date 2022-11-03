@@ -188,7 +188,7 @@ function draw() {
 
   // GREETING TEXT
   gg.push();
-  gg.textSize(0.06 * width);
+  gg.textSize(0.04 * width);
   gg.fill(greetFillCol);
   gg.stroke(greetStrCol);
   gg.strokeWeight(5);
