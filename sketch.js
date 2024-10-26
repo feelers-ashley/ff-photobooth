@@ -181,6 +181,8 @@ function draw() {
   ////////// GRAPHIC CANVAS //////////
   // BG IMG
   //gg.image(bgImg, 0, 0, gg.width, gg.height);
+  ////////// GRAPHIC CANVAS //////////
+  gg.image(video, 0, 0);
 
   // SUBJECT IMG
   gg.push();
@@ -221,9 +223,6 @@ function draw() {
 
   // PRINT
   image(gg, 0.5 * width - gg.width / 2, 0.55 * height - gg.height / 2);
-
-  ////////// GRAPHIC CANVAS //////////
-  image(video, 0.5 * width - gg.width / 2, 0.55 * height - gg.height / 2);
 }
 
 ////////// APPLY STYLE GRAIN //////////
