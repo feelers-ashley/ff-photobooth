@@ -1,11 +1,7 @@
 /* ===
-~ DIY! Good AM Graphic & WhatsApp Sticker Booth 
-Presented by Feelers with library@orchard.
+~ Feelers Photo Booth 
+Presented by Feelers for SGABF.
 https://feelers-feelers.com/
-
-Colloquially-known “Good Morning” WhatsApp images are easily identified by their colourful, saturated stock backgrounds featuring positive daily tidings in mismatched fonts.
-
-Come visit this activity booth to make your own “Good Morning” graphics using a generator created by Singaporean art & tech label Feelers! The first 30 participants may have their generated images made into WhatsApp stickers, released by Feelers.
 === */
 
 new p5();
@@ -24,6 +20,7 @@ let greetFillCol, greetStrCol, msgFillCol, msgStrCol, frameCol;
 let greetX, greetY, msgX, msgY, subX, subY;
 let noiseScale;
 let counter;
+let video;
 
 ////////// PRELOAD IMGS //////////
 function preload() {
@@ -34,15 +31,17 @@ function preload() {
   ZCOOLKuaiLe = loadFont("assets/font/ZCOOLKuaiLe.ttf");
 
   fLogo = loadImage("assets/feelers-logo.png");
-  for (let i = 0; i < 29; i++) {
-    bgImgs[i] = loadImage("assets/bg/bg" + i + ".png");
+  for (let i = 0; i < 21; i++) {
+    //bgImgs[i] = loadImage("assets/bg/bg" + i + ".png");
     subjectImgs[i] = loadImage("assets/subject/subject" + i + ".png");
   }
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  gg = createGraphics(0.75 * height, 0.75 * height);
+  gg = createGraphics(0.55 * height, 0.75 * height);
+  video = createCapture(VIDEO);
+  video.size(0.55 * height, 0.75 * height);
 
   ////////// APPLY COLOUR GRADIENTS //////////
   c1 = color(255, 255, 255);
@@ -67,7 +66,7 @@ function setup() {
   greetBtn = createImg("assets/button/greet.png");
   greetBtn.position(0.07 * width, 0.28 * height);
   greetBtn.size(0.12 * width, 0.095 * width);
-  greetBtn.mousePressed(changeGreeting);
+  greetBtn.mousePressed(clearImg);
 
   subBtn = createImg("assets/button/subject.png");
   subBtn.size(0.1 * width, 0.1 * width);
@@ -120,9 +119,9 @@ function setup() {
     "smell nice",
     "fantastic day",
   ];
-  greeting = greetings[0];
-  textInput = createInput("wishing a merry day today and everyday");
-  textInput.position(0.831 * width, 0.64 * height);
+  // greeting = greetings[0];
+  textInput = createInput("");
+  // textInput.position(0.831 * width, 0.64 * height);
   textInput.size(0.14 * width, 0.02 * width);
   textInput.style("font-size", "20px");
   greetFillCol = color(random(255), random(255), random(255));
@@ -130,14 +129,16 @@ function setup() {
   msgFillCol = color(random(255), random(255), random(255));
   msgStrCol = color(random(255), random(255), random(255));
   frameCol = color(random(255), random(255), random(255));
-  greetX = random(0, 0.5 * gg.width);
-  greetY = random(0.1 * gg.height, 0.5 * gg.height);
-  msgX = random(0, 0.3 * gg.width);
-  msgY = random(0.5 * gg.height, 0.7 * gg.height);
-  subX = random(subjectImg.width, gg.width - subjectImg.width);
-  subY = random(subjectImg.height, gg.height - subjectImg.height);
-  noiseScale = 0.02;
-  counter = 0;
+  // greetX = random(0, 0.5 * gg.width);
+  // greetY = random(0.1 * gg.height, 0.5 * gg.height);
+  // msgX = random(0, 0.3 * gg.width);
+  // msgY = random(0.5 * gg.height, 0.7 * gg.height);
+  // //subX = random(subjectImg.width, gg.width - subjectImg.width);
+  // //subY = random(subjectImg.height, gg.height - subjectImg.height);
+  // subX = 0.55 * height;
+  // subY = 0.75 * height;
+  // noiseScale = 0.02;
+  // counter = 0;
 
   // FEELERS LOGO
   push();
@@ -156,16 +157,16 @@ function draw() {
   fill(0);
   textSize(0.05 * width);
   textFont(PoorStory);
-  text("make your own Good AM graphic ~", 0.24 * width, 0.11 * height);
+  text("~ take a picture ~", 0.32 * width, 0.11 * height);
 
   // BUTTON TEXT
   textSize(0.03 * width);
   fill(255, 0, 127);
   textFont(ZCOOLKuaiLe);
-  text("greeting", 0.07 * width, 0.5 * height);
+  text("clear", 0.07 * width, 0.5 * height);
   text("subject", 0.09 * width, 0.69 * height);
   text("frame", 0.81 * width, 0.46 * height);
-  text("message", 0.83 * width, 0.63 * height);
+  //text("message", 0.83 * width, 0.63 * height);
   text("save", 0.76 * width, 0.77 * height);
 
   // FOOTER
@@ -179,23 +180,25 @@ function draw() {
 
   ////////// GRAPHIC CANVAS //////////
   // BG IMG
-  gg.image(bgImg, 0, 0, gg.width, gg.height);
+  //gg.image(bgImg, 0, 0, gg.width, gg.height);
 
   // SUBJECT IMG
   gg.push();
+  gg.image(subjectImg, 0, 0, gg.width, gg.height);
+  subjectImg.resize(0.55 * height, 0.75 * height);
   gg.image(subjectImg, subX, subY);
   gg.pop();
 
   // GREETING TEXT
-  gg.push();
-  gg.textSize(0.04 * width);
-  gg.fill(greetFillCol);
-  gg.stroke(greetStrCol);
-  gg.strokeWeight(5);
-  gg.textFont(PlayfairDisplay);
-  gg.textWrap(WORD);
-  gg.text(greeting, greetX, greetY, gg.width - greetX);
-  gg.pop();
+  // gg.push();
+  // gg.textSize(0.04 * width);
+  // gg.fill(greetFillCol);
+  // gg.stroke(greetStrCol);
+  // gg.strokeWeight(5);
+  // gg.textFont(PlayfairDisplay);
+  // gg.textWrap(WORD);
+  // gg.text(greeting, greetX, greetY, gg.width - greetX);
+  // gg.pop();
 
   // MESSSAGE TEXT
   gg.push();
@@ -213,11 +216,14 @@ function draw() {
   gg.strokeWeight(0.006 * width);
   gg.stroke(frameCol);
   gg.noFill();
-  gg.square(0, 0, gg.width);
+  gg.rect(0, 0, gg.width, gg.height);
   gg.pop();
 
   // PRINT
   image(gg, 0.5 * width - gg.width / 2, 0.55 * height - gg.height / 2);
+
+  ////////// GRAPHIC CANVAS //////////
+  image(video, 0.5 * width - gg.width / 2, 0.55 * height - gg.height / 2);
 }
 
 ////////// APPLY STYLE GRAIN //////////
@@ -266,9 +272,15 @@ function changeRBackground() {
 }
 
 function changeSubject() {
-  subjectImg = subjectImgs[int(random(subjectImgs.length))];
-  subX = random(0, gg.width - subjectImg.width);
-  subY = random(0, gg.height - subjectImg.height);
+  push();
+  subjectImg = subjectImgs[int(random(subjectImgs.length - 1))];
+  //subX = random(0, gg.width - subjectImg.width);
+  //subY = random(0, gg.height - subjectImg.height);
+  pop();
+}
+
+function clearImg() {
+  subjectImg = subjectImgs[20];
 }
 
 function changeFrame() {
