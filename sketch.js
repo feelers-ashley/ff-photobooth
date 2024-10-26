@@ -182,7 +182,7 @@ function draw() {
   // BG IMG
   //gg.image(bgImg, 0, 0, gg.width, gg.height);
   ////////// GRAPHIC CANVAS //////////
-  gg.image(video, 0, 0);
+  gg.image(video, 0, 0, 0.55 * height, 0.75 * height);
 
   // SUBJECT IMG
   gg.push();
