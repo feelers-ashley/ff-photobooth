@@ -63,31 +63,31 @@ function setup() {
   pop();
 
   ////////// ASSIGN BUTTONS //////////
-  greetBtn = createImg("assets/button/greet.png");
-  greetBtn.position(0.07 * width, 0.28 * height);
-  greetBtn.size(0.12 * width, 0.095 * width);
-  greetBtn.mousePressed(clearImg);
+  // greetBtn = createImg("assets/button/greet.png");
+  // greetBtn.position(0.07 * width, 0.28 * height);
+  // greetBtn.size(0.12 * width, 0.095 * width);
+  // greetBtn.mousePressed(clearImg);
 
   subBtn = createImg("assets/button/subject.png");
   subBtn.size(0.1 * width, 0.1 * width);
   subBtn.position(0.09 * width, 0.7 * height);
   subBtn.mousePressed(changeSubject);
 
-  bgLBtn = createImg("assets/button/arrowL.png");
-  bgLBtn.size(0.07 * width, 0.06 * width);
-  bgLBtn.position(
-    0.5 * width - gg.width / 2 - bgLBtn.width - 0.025 * width,
-    0.55 * height - bgLBtn.height / 2
-  );
-  bgLBtn.mousePressed(changeLBackground);
+  // bgLBtn = createImg("assets/button/arrowL.png");
+  // bgLBtn.size(0.07 * width, 0.06 * width);
+  // bgLBtn.position(
+  //   0.5 * width - gg.width / 2 - bgLBtn.width - 0.025 * width,
+  //   0.55 * height - bgLBtn.height / 2
+  // );
+  // bgLBtn.mousePressed(changeLBackground);
 
-  bgRBtn = createImg("assets/button/arrowR.png");
-  bgRBtn.size(0.07 * width, 0.06 * width);
-  bgRBtn.position(
-    0.5 * width + gg.width / 2 + 0.025 * width,
-    0.55 * height - bgRBtn.height / 2
-  );
-  bgRBtn.mousePressed(changeRBackground);
+  // bgRBtn = createImg("assets/button/arrowR.png");
+  // bgRBtn.size(0.07 * width, 0.06 * width);
+  // bgRBtn.position(
+  //   0.5 * width + gg.width / 2 + 0.025 * width,
+  //   0.55 * height - bgRBtn.height / 2
+  // );
+  // bgRBtn.mousePressed(changeRBackground);
 
   frameBtn = createImg("assets/button/frame.png");
   frameBtn.position(0.79 * width, 0.16 * height);
@@ -163,8 +163,8 @@ function draw() {
   textSize(0.03 * width);
   fill(255, 0, 127);
   textFont(ZCOOLKuaiLe);
-  text("clear", 0.07 * width, 0.5 * height);
-  text("subject", 0.09 * width, 0.69 * height);
+  // text("clear", 0.07 * width, 0.5 * height);
+  text("design", 0.09 * width, 0.69 * height);
   text("frame", 0.81 * width, 0.46 * height);
   //text("message", 0.83 * width, 0.63 * height);
   text("save", 0.76 * width, 0.77 * height);
